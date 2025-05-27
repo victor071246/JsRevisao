@@ -61,12 +61,11 @@ form button:hover {
 	background: var(--primary-color-darker);
 }
 
-.paragrafo-resultado,
-.bad {
-	background: rgb(109, 255, 182);
-	padding: 10px 20px;
+form button:active {
+	background: var(--primary-color-darkest);
 }
 
-.bad {
-	background: rgb(255, 150, 150);
+.dados {
+	display: flex;
+	flex-direction: column;
 }
