@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Diretórios do sistema
+.DS_Store
+Thumbs.db
+
+# Dependências
+node_modules/
+
+# Build
+dist/
+build/
+out/
+.tmp/
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Cache de pacotes
+.pnpm-store/
+.cache/
+.nyc_output/
+
+# Coverage de testes
+coverage/
+
+# Arquivos do sistema
+*.swp
+*.bak
+
+# Optional: arquivos de produção
+*.tgz
+
+# Ignore node_modules de subpastas também (caso seu projeto tenha múltiplos pacotes)
+**/node_modules/
