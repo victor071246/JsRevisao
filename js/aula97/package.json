@@ -1,0 +1,28 @@
+{
+	"name": "aula93",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "webpack -w"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"devDependencies": {
+		"@babel/cli": "^7.27.2",
+		"@babel/core": "^7.27.4",
+		"@babel/preset-env": "^7.27.2",
+		"babel-loader": "^10.0.0",
+		"webpack": "^5.99.9",
+		"webpack-cli": "^6.0.1"
+	},
+	"dependencies": {
+		"core-js": "^3.43.0",
+		"css-loader": "^7.1.2",
+		"regenerator-runtime": "^0.14.1",
+		"style-loader": "^4.0.0"
+	},
+	"packageManager": "yarn@4.6.0+sha224.acd0786f07ffc6c933940eb65fc1d627131ddf5455bddcc295dc90fd"
+}
