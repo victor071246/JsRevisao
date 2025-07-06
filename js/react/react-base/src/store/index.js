@@ -4,11 +4,13 @@ const initialState = {
     botaoClicado: false,
 };
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'BOTAO_CLICADO':
-            console.log('Estou ouvindo BOTAO_CLICADO');
-            return state;
+        case 'BOTAO_CLICADO': {
+            const newState = { ...state };
+            newState.botaoClicado = newState.botaoClicado ? false : true;
+            return newState;
+        }
 
         default:
             return state;

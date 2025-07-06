@@ -13,10 +13,6 @@ export default function Login() {
         dispatch({
             type: 'BOTAO_CLICADO',
         });
-
-        dispatch({
-            type: 'BOTAO_CLICADO2',
-        });
     }
 
     return (
