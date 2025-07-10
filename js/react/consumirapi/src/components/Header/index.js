@@ -13,13 +13,12 @@ export default function Header() {
             <Link to='/'>
                 <FaHome size={24} />
             </Link>
+            <Link to='/register'>
+                <FaUserAlt size={24} />
+            </Link>{' '}
             <Link to='/login'>
                 <FaSignInAlt size={24} />
             </Link>{' '}
-            <Link to='/asdas'>
-                <FaUserAlt size={24} />
-            </Link>
-            {botaoClicado ? 'Clicado' : 'Não clicado'}
         </Nav>
     );
 }

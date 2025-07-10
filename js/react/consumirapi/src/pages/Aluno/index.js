@@ -1,9 +1,9 @@
 import { Container } from '../../styles/GlobalStyles';
 
-export default function Register() {
+export default function Aluno() {
     return (
         <Container>
-            <h1>Register</h1>
+            <h1>Aluno</h1>
         </Container>
     );
 }
