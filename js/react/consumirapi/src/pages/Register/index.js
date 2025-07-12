@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styled';
+import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
+import { get } from 'lodash';
 import axios from '../../services/axios';
+import history from '../../services/history';
 
 export default function Register() {
     const [nome, setNome] = useState('');
@@ -35,9 +37,14 @@ export default function Register() {
                 password,
                 email,
             });
+            toast.success('Você foi registrado com sucesso');
+            history.push('/');
 
             console.log(response.data);
-        } catch (e) {}
+        } catch (e) {
+            const errors = get(e, 'response.data.errors', []);
+            errors.map(error => toast.error(error));
+        }
     }
 
     return (
