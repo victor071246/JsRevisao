@@ -1,7 +1,7 @@
 import * as types from '../types';
 
 const initialState = {
-    botaoClicado: false,
+    isLoggedIn: false,
     token: false,
     user: {},
     isLoading: false,
@@ -10,6 +10,7 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case types.LOGIN_REQUEST: {
+            console.log('REDUCER', action.payload);
             return state;
         }
 
