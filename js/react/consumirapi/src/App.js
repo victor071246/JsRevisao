@@ -13,15 +13,16 @@ import Routes from './routes';
 function App() {
     return (
         <Provider store={store}>
-            <PersistGate persistor={persistor}></PersistGate>
-            <Router history={history}>
-                <>
-                    <Header />
-                    <Routes />
-                    <GlobalStyles />
-                    <ToastContainer autoClose={3000} className='toast-container' />
-                </>
-            </Router>
+            <PersistGate persistor={persistor}>
+                <Router history={history}>
+                    <>
+                        <Header />
+                        <Routes />
+                        <GlobalStyles />
+                        <ToastContainer autoClose={3000} className='toast-container' />
+                    </>
+                </Router>
+            </PersistGate>
         </Provider>
     );
 }
