@@ -21,7 +21,7 @@ console.log(resolve(__dirname, '..'));
 console.log(resolve(__dirname, '..', 'uploads'));
 console.log(resolve(__dirname, '..', 'uploads', 'images'));
 
-const whiteList = ['http://localhost:3000'];
+const whiteList = ['http://34.95.203.36/'];
 
 const corsOptions = {
   origin: function (origin, callback) {
