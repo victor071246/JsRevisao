@@ -3,9 +3,11 @@ import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import { isEmail, isInt, isFloat } from 'validator';
 import { toast } from 'react-toastify';
+import { FaEdit, FaUserCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import { Container } from '../../styles/GlobalStyles';
-import { Form } from './styled';
+import { Form, ProfilePicture } from './styled';
 import Loading from '../../components/Loading';
 import axios from '../../services/axios';
 import history from '../../services/history';
@@ -15,13 +17,14 @@ import * as actions from '../../store/modules/auth/actions';
 export default function Aluno({ match }) {
     const dispatch = useDispatch();
 
-    const id = get(match, 'params.id', 0);
+    const id = get(match, 'params.id', '');
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
     const [idade, setIdade] = useState('');
     const [peso, setPeso] = useState('');
     const [altura, setAltura] = useState('');
+    const [foto, setFoto] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -32,6 +35,8 @@ export default function Aluno({ match }) {
                 setIsLoading(true);
                 const { data } = await axios.get(`/alunos/${id}`);
                 const Foto = get(data, 'Fotos[0].url', '');
+
+                setFoto(Foto);
 
                 setNome(data.nome);
                 setSobrenome(data.sobrenome);
@@ -96,7 +101,14 @@ export default function Aluno({ match }) {
                 toast.success('Aluno(a) editado(a) com sucesso!');
             } else {
                 //Criando
-                await axios.post(`/alunos/`, { nome, sobrenome, email, idade, peso, altura });
+                const { data } = await axios.post(`/alunos/`, {
+                    nome,
+                    sobrenome,
+                    email,
+                    idade,
+                    peso,
+                    altura,
+                });
                 toast.success('Aluno(a) criado(a) com sucesso!');
                 history.push(`/alunos/${data.id}/edit`);
             }
@@ -120,7 +132,18 @@ export default function Aluno({ match }) {
         <Container>
             <Loading isLoading={isLoading}></Loading>
             <h1>{id ? 'Editar aluno ' : 'Novo aluno'}</h1>
-
+            {id && (
+                <ProfilePicture>
+                    {foto ? (
+                        <img src={foto} alt={nome}></img>
+                    ) : (
+                        <FaUserCircle size={180}></FaUserCircle>
+                    )}
+                    <Link to={`/fotos/${id}`}>
+                        <FaEdit size={24}></FaEdit>
+                    </Link>
+                </ProfilePicture>
+            )}
             <Form onSubmit={handleSubmit}>
                 <input
                     type='text'

@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { resolve } from 'path';
+import { dirname, resolve } from 'path';
 
 dotenv.config();
 
@@ -15,6 +15,11 @@ import tokenRoutes from './routes/tokenRoutes';
 import alunoRoutes from './routes/alunoRoutes';
 import fotoRoutes from './routes/fotoRoutes';
 import delay from 'express-delay';
+
+console.log(dirname);
+console.log(resolve(__dirname, '..'));
+console.log(resolve(__dirname, '..', 'uploads'));
+console.log(resolve(__dirname, '..', 'uploads', 'images'));
 
 const whiteList = ['http://localhost:3000'];
 
@@ -41,6 +46,7 @@ class App {
     this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+
     this.app.use(
       '/images/',
       express.static(resolve(__dirname, '..', 'uploads', 'images'))
