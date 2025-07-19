@@ -26,6 +26,11 @@ Os CPFs são:
     963.987.321-00
 `;
 
+const cpfs2 = `254.224.877-45
+215.978.456-12
+047.258.369-96
+963.987.32a.00`;
+
 const ips = `
 
     Os Ips são:
@@ -43,6 +48,7 @@ const alfabeto =
     'ABCDEFGHIJKLMZNOPRSTUVWZXY atenção abcdefghijklmznoprstuvwzxy @ 0123456789';
 
 const html = '<p>Olá mundo</p> <p>Olá de novo</p>';
+const html2 = `<p>Olá mundo</p> <div>Sou a div</div>`;
 
 module.exports = {
     texto,
@@ -50,5 +56,7 @@ module.exports = {
     html,
     alfabeto,
     ips,
+    html2,
     cpfs,
+    cpfs2,
 };
